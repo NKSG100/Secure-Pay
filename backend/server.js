@@ -17,6 +17,10 @@ app.use(cors());
 app.use(express.json());
 app.use(limiter);
 
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/account', accountRoutes);
