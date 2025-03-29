@@ -106,8 +106,8 @@ router.post('/transfer', auth, async (req, res) => {
     }
 
     // Update balances
-    fromUser.balance -= amount;
-    toUser.balance += amount;
+    fromUser.balance = Number(fromUser.balance) - Number(amount);
+    toUser.balance = Number(toUser.balance) + Number(amount);
 
     await fromUser.save();
     await toUser.save();
